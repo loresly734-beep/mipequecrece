@@ -1,0 +1,264 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=Manrope:wght@400;500;600;700;800;900&display=swap');
+
+:root {
+  /* Pediatric Warm & Bright palette */
+  --background: #fffdf9;
+  --foreground: #1a2e3b;
+  --primary: #00c896;
+  --primary-foreground: #ffffff;
+  --secondary: #ff8c42;
+  --secondary-foreground: #ffffff;
+  --accent: #ff6b9d;
+  --accent-foreground: #ffffff;
+  --muted: #fef6ee;
+  --muted-foreground: #64748b;
+  --card: #ffffff;
+  --card-foreground: #1a2e3b;
+  --border: #fde8d8;
+  --input: #fef6ee;
+  --ring: #00c896;
+  --radius: 1.25rem;
+
+  /* Brand tokens */
+  --mint: #00c896;
+  --mint-light: #e0faf3;
+  --mint-glow: rgba(0, 200, 150, 0.25);
+  --teal: #00a8cc;
+  --teal-light: #e0f6fb;
+  --teal-glow: rgba(0, 168, 204, 0.25);
+  --coral: #ff6b6b;
+  --coral-light: #fff0f0;
+  --coral-glow: rgba(255, 107, 107, 0.25);
+  --peach: #ff8c42;
+  --peach-light: #fff3eb;
+  --peach-glow: rgba(255, 140, 66, 0.25);
+  --pink: #ff6b9d;
+  --pink-light: #fff0f7;
+  --pink-glow: rgba(255, 107, 157, 0.25);
+  --sunny: #ffd166;
+  --sunny-light: #fffbe6;
+  --sunny-glow: rgba(255, 209, 102, 0.3);
+  --sky: #87ceeb;
+  --sky-glow: rgba(135, 206, 235, 0.4);
+  --lavender: #c4b5fd;
+  --white: #ffffff;
+  --off-white: #fffdf9;
+  --light-grey: #fef6ee;
+  --mid-grey: #cbd5e1;
+  --dark-text: #1a2e3b;
+  --body-text: #334155;
+  --muted-text: #64748b;
+
+  --font-sans: 'Plus Jakarta Sans', sans-serif;
+  --font-display: 'Manrope', sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--background);
+  color: var(--foreground);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+/* ── Reveal animations ── */
+.reveal-hidden {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1), transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.reveal-hidden.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ── Glow card ── */
+.glow-card {
+  background: rgba(255,255,255,0.92);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1.5px solid rgba(255,255,255,0.95);
+  border-radius: 1.5rem;
+  box-shadow: 0 4px 24px rgba(0,200,150,0.08), 0 1px 4px rgba(0,0,0,0.04);
+  transition: box-shadow 0.35s ease, transform 0.35s ease;
+}
+.glow-card:hover {
+  box-shadow: 0 8px 40px rgba(0,200,150,0.18), 0 2px 8px rgba(0,0,0,0.06);
+  transform: translateY(-3px);
+}
+
+/* ── Frosted glass panel ── */
+.glass-panel {
+  background: rgba(255,255,255,0.82);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1.5px solid rgba(255,255,255,0.95);
+  border-radius: 1.75rem;
+  box-shadow: 0 8px 32px rgba(255,140,66,0.08), 0 2px 8px rgba(0,0,0,0.04), inset 0 1px 0 rgba(255,255,255,0.95);
+}
+
+/* ── Coral pulsing border ── */
+@keyframes coral-pulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(255,107,107,0.4), 0 8px 32px rgba(255,107,107,0.12); }
+  50% { box-shadow: 0 0 0 8px rgba(255,107,107,0), 0 8px 48px rgba(255,107,107,0.22); }
+}
+.coral-pulse-card {
+  animation: coral-pulse 2.5s ease-in-out infinite;
+}
+
+/* ── Sky-blue neon flow line ── */
+@keyframes flow-light {
+  0% { stroke-dashoffset: 200; opacity: 0.4; }
+  50% { opacity: 1; }
+  100% { stroke-dashoffset: 0; opacity: 0.4; }
+}
+.flow-line {
+  stroke-dasharray: 12 6;
+  animation: flow-light 2.5s linear infinite;
+}
+.flow-line-active {
+  stroke-dasharray: 12 6;
+  animation: flow-light 1s linear infinite;
+  filter: drop-shadow(0 0 6px var(--sky));
+}
+
+/* ── Floating panel animation ── */
+@keyframes float-panel {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-6px); }
+}
+.float-anim {
+  animation: float-panel 5s ease-in-out infinite;
+}
+
+/* ── Bounce in animation ── */
+@keyframes bounce-in {
+  0% { transform: scale(0.5) translateY(20px); opacity: 0; }
+  60% { transform: scale(1.08) translateY(-4px); opacity: 1; }
+  80% { transform: scale(0.96) translateY(2px); }
+  100% { transform: scale(1) translateY(0); opacity: 1; }
+}
+.bounce-in {
+  animation: bounce-in 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+/* ── Wiggle animation ── */
+@keyframes wiggle {
+  0%, 100% { transform: rotate(-3deg); }
+  50% { transform: rotate(3deg); }
+}
+.wiggle {
+  animation: wiggle 2s ease-in-out infinite;
+}
+
+/* ── Stat ring fill ── */
+@keyframes ring-fill {
+  from { stroke-dashoffset: 283; }
+}
+
+/* ── Data scan title ── */
+@keyframes scan-reveal {
+  0% { clip-path: inset(0 100% 0 0); opacity: 0; }
+  30% { opacity: 1; }
+  100% { clip-path: inset(0 0% 0 0); opacity: 1; }
+}
+.scan-reveal {
+  animation: scan-reveal 1.4s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+/* ── Particle canvas ── */
+#hero-canvas {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ── Section heading sizes ── */
+.text-section-heading {
+  font-size: clamp(1.75rem, 3.5vw, 2.75rem);
+  line-height: 1.2;
+}
+.text-hero-heading {
+  font-size: clamp(2.8rem, 7vw, 5.5rem);
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+}
+
+/* ── Glowing dot ── */
+@keyframes glow-dot {
+  0%, 100% { box-shadow: 0 0 4px 2px rgba(0,200,150,0.5); }
+  50% { box-shadow: 0 0 12px 6px rgba(0,200,150,0.9); }
+}
+.glow-dot {
+  animation: glow-dot 2s ease-in-out infinite;
+}
+
+/* ── Map tooltip ── */
+.map-tooltip {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s ease, transform 0.25s ease;
+  transform: translateY(6px);
+}
+.map-point:hover .map-tooltip {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ── Phase card 3D flip ── */
+.phase-card-inner {
+  transition: transform 0.65s cubic-bezier(0.22, 1, 0.36, 1);
+  transform-style: preserve-3d;
+}
+.phase-card-inner.flipped {
+  transform: rotateY(180deg);
+}
+.phase-card-front,
+.phase-card-back {
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+.phase-card-back {
+  transform: rotateY(180deg);
+}
+
+/* ── Mint gradient text ── */
+.gradient-text-mint {
+  background: linear-gradient(135deg, #00c896 0%, #00a8cc 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ── Pediatric badge pill ── */
+.pedi-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 16px;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+}
+
+/* ── Scrollbar ── */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: #fef6ee; }
+::-webkit-scrollbar-thumb { background: var(--peach); border-radius: 3px; }
