@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useEffect, useState } from 'react';
+import Link from 'next/link';
 
 export default function Header() {
   const [scrolled, setScrolled] = useState(false);
@@ -114,6 +115,16 @@ export default function Header() {
           >
             🌱 Ver Programa
           </button>
+          <Link
+            href="/recompensas"
+            className="px-5 py-2 rounded-xl text-sm font-bold text-white transition-all duration-200 hover:opacity-90 hover:scale-105"
+            style={{
+              background: 'linear-gradient(135deg, #059669 0%, #0284c7 100%)',
+              boxShadow: '0 4px 16px rgba(5,150,105,0.3)',
+            }}
+          >
+            🏆 Recompensas CRED
+          </Link>
         </div>
 
         {/* Mobile menu button */}
