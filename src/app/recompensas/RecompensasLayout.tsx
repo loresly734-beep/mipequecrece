@@ -96,7 +96,7 @@ export default function RecompensasLayout() {
                   </div>
                   <div>
                     <div className="text-xs font-bold text-slate-800">{user?.name?.split(' ')?.[0]}</div>
-                    <div className="text-xs text-emerald-600 font-semibold">🪙 {user?.points?.toLocaleString()} pts</div>
+                    <div className="text-xs text-emerald-600 font-semibold">🪙 {user?.points?.toLocaleString('es-PE')} pts</div>
                   </div>
                 </div>
                 <button

@@ -139,7 +139,7 @@ export default function TiendaPremios() {
             <span className="text-xl">👛</span>
             <div>
               <div className="text-xs font-bold text-slate-500 uppercase tracking-wider">Tus Puntos Actuales</div>
-              <div className="text-xl font-black text-emerald-700">{currentPoints.toLocaleString()} pts</div>
+              <div className="text-xl font-black text-emerald-700">{currentPoints.toLocaleString('es-PE')} pts</div>
             </div>
           </div>
         </div>
@@ -189,7 +189,7 @@ export default function TiendaPremios() {
                   <span className={`px-3 py-1 rounded-full text-xs font-bold ${
                     canAfford ? 'bg-emerald-100 text-emerald-700' : 'bg-slate-100 text-slate-500'
                   }`}>
-                    {reward.points.toLocaleString()} pts
+                    {reward.points.toLocaleString('es-PE')} pts
                   </span>
                   <span className="px-2 py-0.5 rounded-full text-xs font-semibold" style={{ background: categoryBgs[reward.category], color: categoryColors[reward.category] }}>
                     {reward.category}
@@ -209,7 +209,7 @@ export default function TiendaPremios() {
                     : 'bg-slate-100 text-slate-400 cursor-not-allowed'
                 }`}
               >
-                {!isLoggedIn ? 'Iniciar Sesión para Canjear' : canAfford ? '🎁 Canjear Premio' : `Faltan ${(reward.points - currentPoints).toLocaleString()} pts`}
+                {!isLoggedIn ? 'Iniciar Sesión para Canjear' : canAfford ? '🎁 Canjear Premio' : `Faltan ${(reward.points - currentPoints).toLocaleString('es-PE')} pts`}
               </button>
             </div>
           );

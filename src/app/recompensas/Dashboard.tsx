@@ -34,7 +34,7 @@ export default function Dashboard() {
   }
 
   const stats = [
-    { label: 'Puntos Disponibles', value: user?.points?.toLocaleString(), emoji: '🪙', bg: '#dcfce7', color: '#059669' },
+    { label: 'Puntos Disponibles', value: user?.points?.toLocaleString('es-PE'), emoji: '🪙', bg: '#dcfce7', color: '#059669' },
     { label: 'Nivel de Usuario', value: 'Padre Comprometido', emoji: '🏆', bg: '#e0f2fe', color: '#0284c7' },
     { label: 'Citas CRED Asistidas', value: `${user?.attendedControls} Controles`, emoji: '📅', bg: '#fef3c7', color: '#d97706' },
     { label: 'Centro de Salud', value: user?.healthCenter, emoji: '🏥', bg: '#d1fae5', color: '#059669' },
@@ -55,7 +55,7 @@ export default function Dashboard() {
           </span>
           <h1 className="text-3xl md:text-4xl font-black mb-2">¡Hola, {user?.name?.split(' ')?.[0]}!</h1>
           <p className="text-emerald-100 text-sm md:text-base mb-6 max-w-lg">
-            Tienes <strong>{user?.points?.toLocaleString()} puntos</strong> disponibles. Sigue asistiendo al control CRED de {user?.childName} para ganar más premios.
+            Tienes <strong>{user?.points?.toLocaleString('es-PE')} puntos</strong> disponibles. Sigue asistiendo al control CRED de {user?.childName} para ganar más premios.
           </p>
           <div className="flex flex-wrap gap-3">
             <button
@@ -116,7 +116,7 @@ export default function Dashboard() {
                   <span className={`px-3 py-1 rounded-full text-xs font-bold shrink-0 ${
                     item?.type === 'earn' ? 'bg-emerald-100 text-emerald-700' : 'bg-amber-100 text-amber-700'
                   }`}>
-                    {item?.type === 'earn' ? '+' : ''}{item?.points?.toLocaleString()} pts
+                    {item?.type === 'earn' ? '+' : ''}{item?.points?.toLocaleString('es-PE')} pts
                   </span>
                 </div>
               ))}
