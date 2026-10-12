@@ -8,10 +8,12 @@ import ImportanciaCRED from './ImportanciaCRED';
 import EducacionVideos from './EducacionVideos';
 import Donativos from './Donativos';
 import AuthModal from './AuthModal';
+import SorteoMensual from './SorteoMensual';
 
 const tabs = [
   { id: 'dashboard', label: 'Dashboard', emoji: '📊' },
   { id: 'tienda', label: 'Tienda de Premios', emoji: '🛍️' },
+  { id: 'sorteo', label: 'Sorteo Mensual', emoji: '🎰' },
   { id: 'importancia', label: 'Importancia CRED', emoji: '💡' },
   { id: 'educacion', label: 'Educación y Videos', emoji: '🎥' },
   { id: 'donativos', label: 'Donativos', emoji: '💚' },
@@ -24,6 +26,7 @@ export default function RecompensasLayout() {
     switch (activeTab) {
       case 'dashboard': return <Dashboard />;
       case 'tienda': return <TiendaPremios />;
+      case 'sorteo': return <SorteoMensual />;
       case 'importancia': return <ImportanciaCRED />;
       case 'educacion': return <EducacionVideos />;
       case 'donativos': return <Donativos />;

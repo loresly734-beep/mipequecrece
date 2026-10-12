@@ -63,16 +63,9 @@ const rewards: Reward[] = [
   { id: 403, name: 'Gorro y guantes de lana artesanal', description: 'Tejido a mano, abriga del frío de la sierra', points: 3000, emoji: '🧤', bg: '#fdf4ff', category: 'Ropa' },
   { id: 404, name: 'Pijama de polar para bebé (0-12 meses)', description: 'Suave y cálida para las noches frías', points: 4200, emoji: '🌙', bg: '#dbeafe', category: 'Ropa' },
   { id: 405, name: 'Mochila ergonómica portabebé frontal', description: 'Carga cómoda y segura para el bebé', points: 14000, emoji: '🎒', bg: '#e0e7ff', category: 'Ropa' },
-
-  // --- HOGAR ---
-  { id: 501, name: 'Set de platos y cubiertos de bambú ecológico', description: 'Vajilla segura, ecológica y colorida', points: 4500, emoji: '🍽️', bg: '#fef3c7', category: 'Hogar' },
-  { id: 502, name: 'Lonchera térmica escolar saludable', description: 'Mantiene los alimentos frescos y seguros', points: 5500, emoji: '🍱', bg: '#d1fae5', category: 'Hogar' },
-  { id: 503, name: 'Coche de paseo ligero y plegable', description: 'Movilidad cómoda para toda la familia', points: 18000, emoji: '🛒', bg: '#d1fae5', category: 'Hogar' },
-  { id: 504, name: 'Cuento infantil ilustrado de desarrollo temprano', description: 'Fomenta la lectura y el vínculo afectivo', points: 2500, emoji: '📖', bg: '#dbeafe', category: 'Hogar' },
-  { id: 505, name: 'Kit de estimulación temprana sensorial', description: 'Texturas, colores y sonidos para el desarrollo', points: 9000, emoji: '🧠', bg: '#fdf4ff', category: 'Hogar' },
 ];
 
-const categories = ['Todos', 'Víveres', 'Juguetes', 'Salud', 'Ropa', 'Hogar'];
+const categories = ['Todos', 'Víveres', 'Juguetes', 'Salud', 'Ropa'];
 
 const categoryColors: Record<string, string> = {
   Todos: '#1e293b',
@@ -80,7 +73,6 @@ const categoryColors: Record<string, string> = {
   Juguetes: '#7c3aed',
   Salud: '#065f46',
   Ropa: '#1d4ed8',
-  Hogar: '#9a3412',
 };
 
 const categoryBgs: Record<string, string> = {
@@ -89,7 +81,6 @@ const categoryBgs: Record<string, string> = {
   Juguetes: '#ede9fe',
   Salud: '#d1fae5',
   Ropa: '#dbeafe',
-  Hogar: '#ffedd5',
 };
 
 interface ModalState {
@@ -165,7 +156,6 @@ export default function TiendaPremios() {
               {cat === 'Juguetes' && '🧩 '}
               {cat === 'Salud' && '💊 '}
               {cat === 'Ropa' && '👕 '}
-              {cat === 'Hogar' && '🏠 '}
               {cat}
               <span className="ml-1 opacity-70 text-xs">
                 ({cat === 'Todos' ? rewards.length : rewards.filter(r => r.category === cat).length})
